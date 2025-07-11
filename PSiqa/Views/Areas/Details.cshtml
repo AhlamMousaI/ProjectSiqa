@@ -1,0 +1,17 @@
+﻿@model PSiqa.Models.Area
+
+@{
+    ViewData["Title"] = "تفاصيل المنطقة";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">تفاصيل المنطقة</h2>
+
+    <dl class="row">
+        <dt class="col-sm-2">الاسم:</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">تعديل</a>
+    <a asp-action="Index" class="btn btn-secondary">عودة</a>
+</div>

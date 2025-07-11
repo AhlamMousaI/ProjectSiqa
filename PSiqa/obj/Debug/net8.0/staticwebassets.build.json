@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SsC/ZPa1CEIBwBukBd1dnKqQZ3ZvsJEBLUunJzCJMeA=",
+  "Hash": "CsXjkLpxqxmMWqhI5ni4NOUQkOZUCVxSgrWEov+n/tM=",
   "Source": "PSiqa",
   "BasePath": "_content/PSiqa",
   "Mode": "Default",
@@ -1317,6 +1317,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\wwwroot\\water.jpg",
+      "SourceId": "PSiqa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\wwwroot\\",
+      "BasePath": "_content/PSiqa",
+      "RelativePath": "water#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "zgx765ve0w",
+      "Integrity": "Mw8/PW5RdHQZFvrhSRDg5jrX2elnqwx+4cO84jfNU1I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\water.jpg"
     }
   ],
   "Endpoints": [
@@ -6401,6 +6422,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Od2wkcMC8ywUI2O5sqvLIvfBBcjGPVInhOkOKpTy1+4="
+        }
+      ]
+    },
+    {
+      "Route": "water.jpg",
+      "AssetFile": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\wwwroot\\water.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113704"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Mw8/PW5RdHQZFvrhSRDg5jrX2elnqwx+4cO84jfNU1I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Jul 2025 19:09:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Mw8/PW5RdHQZFvrhSRDg5jrX2elnqwx+4cO84jfNU1I="
+        }
+      ]
+    },
+    {
+      "Route": "water.zgx765ve0w.jpg",
+      "AssetFile": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\wwwroot\\water.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "113704"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Mw8/PW5RdHQZFvrhSRDg5jrX2elnqwx+4cO84jfNU1I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 09 Jul 2025 19:09:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "zgx765ve0w"
+        },
+        {
+          "Name": "label",
+          "Value": "water.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Mw8/PW5RdHQZFvrhSRDg5jrX2elnqwx+4cO84jfNU1I="
         }
       ]
     }
