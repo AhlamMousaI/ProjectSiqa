@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PSiqa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f5b38d5d9971d2e4c431f7100ae6722eb29ec01")]
 [assembly: System.Reflection.AssemblyProductAttribute("PSiqa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PSiqa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

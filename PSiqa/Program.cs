@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using PSiqa.Data;
+using System;
+
 namespace PSiqa
 {
     public class Program
@@ -5,6 +9,8 @@ namespace PSiqa
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<SSDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
