@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C8088D90-F67E-4F75-ADC9-6660A1A77732}|PSiqa\\PSiqa.csproj|c:\\users\\pt\\desktop\\projectsiqa\\psiqa\\psiqa\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8088D90-F67E-4F75-ADC9-6660A1A77732}|PSiqa\\PSiqa.csproj|solutionrelative:psiqa\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C8088D90-F67E-4F75-ADC9-6660A1A77732}|PSiqa\\PSiqa.csproj|c:\\users\\pt\\desktop\\projectsiqa\\psiqa\\psiqa\\migrations\\20250711200252_adtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8088D90-F67E-4F75-ADC9-6660A1A77732}|PSiqa\\PSiqa.csproj|solutionrelative:psiqa\\migrations\\20250711200252_adtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -59,53 +63,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20250711200252_AdTable.cs",
-              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Migrations\\20250711200252_AdTable.cs",
-              "RelativeDocumentMoniker": "PSiqa\\Migrations\\20250711200252_AdTable.cs",
-              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Migrations\\20250711200252_AdTable.cs",
-              "RelativeToolTip": "PSiqa\\Migrations\\20250711200252_AdTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T20:02:52.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Program.cs",
-              "RelativeDocumentMoniker": "PSiqa\\Program.cs",
-              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Program.cs",
-              "RelativeToolTip": "PSiqa\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T20:01:25.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\appsettings.json",
-              "RelativeDocumentMoniker": "PSiqa\\appsettings.json",
-              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\appsettings.json",
-              "RelativeToolTip": "PSiqa\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-11T19:58:32.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SSDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Data\\SSDbContext.cs",
-              "RelativeDocumentMoniker": "PSiqa\\Data\\SSDbContext.cs",
-              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Data\\SSDbContext.cs",
-              "RelativeToolTip": "PSiqa\\Data\\SSDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:56:35.169Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "PSiqa\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "PSiqa\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-11T20:06:24.244Z",
               "EditorCaption": ""
             },
             {
@@ -118,7 +83,56 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "20250711200252_AdTable.cs",
+              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Migrations\\20250711200252_AdTable.cs",
+              "RelativeDocumentMoniker": "PSiqa\\Migrations\\20250711200252_AdTable.cs",
+              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Migrations\\20250711200252_AdTable.cs",
+              "RelativeToolTip": "PSiqa\\Migrations\\20250711200252_AdTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T20:02:52.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Program.cs",
+              "RelativeDocumentMoniker": "PSiqa\\Program.cs",
+              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Program.cs",
+              "RelativeToolTip": "PSiqa\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T20:01:25.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\appsettings.json",
+              "RelativeDocumentMoniker": "PSiqa\\appsettings.json",
+              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\appsettings.json",
+              "RelativeToolTip": "PSiqa\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-11T19:58:32.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SSDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Data\\SSDbContext.cs",
+              "RelativeDocumentMoniker": "PSiqa\\Data\\SSDbContext.cs",
+              "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Data\\SSDbContext.cs",
+              "RelativeToolTip": "PSiqa\\Data\\SSDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T19:56:35.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Tank.cs",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Models\\Tank.cs",
               "RelativeDocumentMoniker": "PSiqa\\Models\\Tank.cs",
@@ -126,12 +140,11 @@
               "RelativeToolTip": "PSiqa\\Models\\Tank.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAcwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:54:57.933Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:54:57.933Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Models\\Order.cs",
               "RelativeDocumentMoniker": "PSiqa\\Models\\Order.cs",
@@ -139,12 +152,11 @@
               "RelativeToolTip": "PSiqa\\Models\\Order.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAtwCQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:54:14.89Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:54:14.89Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Driver.cs",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Models\\Driver.cs",
               "RelativeDocumentMoniker": "PSiqa\\Models\\Driver.cs",
@@ -152,12 +164,11 @@
               "RelativeToolTip": "PSiqa\\Models\\Driver.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:52:35.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:52:35.22Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Customer.cs",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "PSiqa\\Models\\Customer.cs",
@@ -165,12 +176,11 @@
               "RelativeToolTip": "PSiqa\\Models\\Customer.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAqwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:51:52.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:51:52.21Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Area.cs",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Models\\Area.cs",
               "RelativeDocumentMoniker": "PSiqa\\Models\\Area.cs",
@@ -178,12 +188,11 @@
               "RelativeToolTip": "PSiqa\\Models\\Area.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:47:38.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:47:38.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TankArea.cs",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\Models\\TankArea.cs",
               "RelativeDocumentMoniker": "PSiqa\\Models\\TankArea.cs",
@@ -191,21 +200,19 @@
               "RelativeToolTip": "PSiqa\\Models\\TankArea.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:55:32.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:55:32.96Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PSiqa",
+              "DocumentIndex": 11,
+              "Title": "PSiqa.csproj",
               "DocumentMoniker": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\PSiqa.csproj",
               "RelativeDocumentMoniker": "PSiqa\\PSiqa.csproj",
               "ToolTip": "C:\\Users\\PT\\Desktop\\ProjectSiqa\\PSiqa\\PSiqa\\PSiqa.csproj",
               "RelativeToolTip": "PSiqa\\PSiqa.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-11T19:56:10.152Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-11T19:56:10.152Z"
             }
           ]
         }
