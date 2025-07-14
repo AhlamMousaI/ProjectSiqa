@@ -46,6 +46,7 @@ namespace PSiqa.Controllers
         // GET: Tanks/Create
         public IActionResult Create()
         {
+            ViewBag.Areas = new MultiSelectList(_context.Areas, "Id", "Name");
             return View();
         }
 
@@ -54,16 +55,24 @@ namespace PSiqa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Capacity,Location,WaterType,PricePerUnit")] Tank tank)
+        public async Task<IActionResult> Create(Tank tank, int[] SelectedAreaIds)
         {
             if (ModelState.IsValid)
             {
+                foreach (var areaId in SelectedAreaIds)
+                {
+                    tank.TankAreas.Add(new TankArea { AreaId = areaId });
+                }
+
                 _context.Add(tank);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Areas = new MultiSelectList(_context.Areas, "Id", "Name");
             return View(tank);
         }
+
 
         // GET: Tanks/Edit/5
         public async Task<IActionResult> Edit(int? id)
