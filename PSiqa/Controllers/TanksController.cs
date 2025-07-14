@@ -29,19 +29,19 @@ namespace PSiqa.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var tank = await _context.Tanks
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(t => t.TankAreas)
+                    .ThenInclude(ta => ta.Area)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
             if (tank == null)
-            {
                 return NotFound();
-            }
 
             return View(tank);
         }
+
 
         // GET: Tanks/Create
         public IActionResult Create()
