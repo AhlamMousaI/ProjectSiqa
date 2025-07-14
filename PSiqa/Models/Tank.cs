@@ -28,6 +28,6 @@ namespace PSiqa.Models
         public ICollection<Order> Orders { get; set; }
 
         // المناطق التي يغطيها هذا الخزان (عبر جدول وسيط)
-        public ICollection<TankArea> TankArea { get; set; }
+        public ICollection<TankArea> TankAreas { get; set; } = new List<TankArea>();
     }
 }
