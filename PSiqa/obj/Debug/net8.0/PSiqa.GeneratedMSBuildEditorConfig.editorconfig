@@ -64,6 +64,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/FatemaAlarij/Desktop/FatemaAlarij/ProjectSiqa/PSiqa/Views/Tanks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFua3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FatemaAlarij/Desktop/FatemaAlarij/ProjectSiqa/PSiqa/Views/Tanks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFua3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FatemaAlarij/Desktop/FatemaAlarij/ProjectSiqa/PSiqa/Views/Tanks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFua3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FatemaAlarij/Desktop/FatemaAlarij/ProjectSiqa/PSiqa/Views/Tanks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFua3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/FatemaAlarij/Desktop/FatemaAlarij/ProjectSiqa/PSiqa/Views/Tanks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFua3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/FatemaAlarij/Desktop/FatemaAlarij/ProjectSiqa/PSiqa/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
