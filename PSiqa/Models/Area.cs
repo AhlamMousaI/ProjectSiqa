@@ -6,14 +6,17 @@ namespace PSiqa.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "اسم المنطقة مطلوب")]
         [StringLength(50)]
-        public string Name { get; set; }
-        //زبائن في هذه المنطقة
+        public string Name { get; set; } = string.Empty;
+        
+
+
+        // الزبائن في هذه المنطقة
         public ICollection<Customer> Customers { get; set; } = new List<Customer>();
 
         // الخزانات التي تغطي هذه المنطقة عبر جدول وسيط
-        public ICollection<TankArea> TankArea { get; set; } = new List<TankArea>();
-
+        public ICollection<TankArea> TankAreas { get; set; } = new List<TankArea>();
     }
 }

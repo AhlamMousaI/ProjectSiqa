@@ -12,8 +12,8 @@ using PSiqa.Data;
 namespace PSiqa.Migrations
 {
     [DbContext(typeof(SSDbContext))]
-    [Migration("20250711200252_AdTable")]
-    partial class AdTable
+    [Migration("20250716123523_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,23 @@ namespace PSiqa.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Areas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "المنطقة الشمالية"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "المنطقة الشرقية"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "المنطقة الغربية"
+                        });
                 });
 
             modelBuilder.Entity("PSiqa.Models.Customer", b =>
@@ -59,7 +76,7 @@ namespace PSiqa.Migrations
                     b.Property<int>("AreaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -73,6 +90,24 @@ namespace PSiqa.Migrations
                     b.HasIndex("AreaId");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "شارع الملك - المنطقة الشمالية",
+                            AreaId = 1,
+                            FullName = "محمد أحمد",
+                            Phone = "0512345678"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "شارع الجامعة - المنطقة الشرقية",
+                            AreaId = 2,
+                            FullName = "علي محمد",
+                            Phone = "0598765432"
+                        });
                 });
 
             modelBuilder.Entity("PSiqa.Models.Driver", b =>
@@ -83,7 +118,7 @@ namespace PSiqa.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -95,6 +130,20 @@ namespace PSiqa.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Drivers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FullName = "سائق الشمال",
+                            Phone = "0501111222"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FullName = "سائق الشرق",
+                            Phone = "0503333444"
+                        });
                 });
 
             modelBuilder.Entity("PSiqa.Models.Order", b =>
@@ -134,6 +183,28 @@ namespace PSiqa.Migrations
                     b.HasIndex("TankId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CustomerId = 1,
+                            DriverId = 1,
+                            OrderTime = new DateTime(2023, 1, 1, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 5,
+                            Status = "تم",
+                            TankId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerId = 2,
+                            DriverId = 2,
+                            OrderTime = new DateTime(2023, 1, 2, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 3,
+                            Status = "جاري التسليم",
+                            TankId = 2
+                        });
                 });
 
             modelBuilder.Entity("PSiqa.Models.Tank", b =>
@@ -152,13 +223,13 @@ namespace PSiqa.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("Name")
+                    b.Property<decimal>("PricePerUnit")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("TankName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("PricePerUnit")
-                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("WaterType")
                         .IsRequired()
@@ -168,29 +239,58 @@ namespace PSiqa.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tanks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Capacity = 10000,
+                            Location = "موقع شمالي",
+                            PricePerUnit = 2.5m,
+                            TankName = "خزان الشمال الرئيسي",
+                            WaterType = "شرب"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Capacity = 8000,
+                            Location = "موقع شرقي",
+                            PricePerUnit = 1.8m,
+                            TankName = "خزان الشرق الاحتياطي",
+                            WaterType = "زراعي"
+                        });
                 });
 
             modelBuilder.Entity("PSiqa.Models.TankArea", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("TankId")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AreaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TankId")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("TankId", "AreaId");
 
                     b.HasIndex("AreaId");
 
-                    b.HasIndex("TankId");
-
                     b.ToTable("TankAreas");
+
+                    b.HasData(
+                        new
+                        {
+                            TankId = 1,
+                            AreaId = 1,
+                            Id = 1
+                        },
+                        new
+                        {
+                            TankId = 2,
+                            AreaId = 2,
+                            Id = 2
+                        });
                 });
 
             modelBuilder.Entity("PSiqa.Models.Customer", b =>
@@ -232,13 +332,13 @@ namespace PSiqa.Migrations
             modelBuilder.Entity("PSiqa.Models.TankArea", b =>
                 {
                     b.HasOne("PSiqa.Models.Area", "Area")
-                        .WithMany("TankArea")
+                        .WithMany("TankAreas")
                         .HasForeignKey("AreaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("PSiqa.Models.Tank", "Tank")
-                        .WithMany("TankArea")
+                        .WithMany("TankAreas")
                         .HasForeignKey("TankId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -252,7 +352,7 @@ namespace PSiqa.Migrations
                 {
                     b.Navigation("Customers");
 
-                    b.Navigation("TankArea");
+                    b.Navigation("TankAreas");
                 });
 
             modelBuilder.Entity("PSiqa.Models.Customer", b =>
@@ -269,7 +369,7 @@ namespace PSiqa.Migrations
                 {
                     b.Navigation("Orders");
 
-                    b.Navigation("TankArea");
+                    b.Navigation("TankAreas");
                 });
 #pragma warning restore 612, 618
         }

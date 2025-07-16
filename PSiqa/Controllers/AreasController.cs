@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PSiqa.Data;
 using PSiqa.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PSiqa.Controllers
 {
@@ -22,23 +20,21 @@ namespace PSiqa.Controllers
         // GET: Areas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Areas.ToListAsync());
+            return View(await _context.Areas.OrderBy(a => a.Name).ToListAsync());
         }
 
         // GET: Areas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var area = await _context.Areas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (area == null)
-            {
-                return NotFound();
-            }
+                .Include(a => a.Customers)
+                .Include(a => a.TankAreas)
+                .ThenInclude(ta => ta.Tank)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (area == null) return NotFound();
 
             return View(area);
         }
@@ -46,100 +42,160 @@ namespace PSiqa.Controllers
         // GET: Areas/Create
         public IActionResult Create()
         {
+            ViewBag.Tanks = _context.Tanks.Select(t => new SelectListItem
+            {
+                Value = t.Id.ToString(),
+                Text = t.TankName
+            }).ToList();
+
             return View();
         }
 
         // POST: Areas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name")] Area area)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Area area, int[] selectedTanks)
         {
             if (_context.Areas.Any(a => a.Name == area.Name))
             {
-                ModelState.AddModelError("Name", "اسم المنطقة موجود مسبقًا.");
-                return View(area);
+                ModelState.AddModelError("Name", "اسم المنطقة موجود مسبقًا");
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(area);
+                try
+                {
+                    _context.Add(area);
+                    await _context.SaveChangesAsync();
+
+                    if (selectedTanks != null)
+                    {
+                        foreach (var tankId in selectedTanks)
+                        {
+                            _context.TankAreas.Add(new TankArea
+                            {
+                                AreaId = area.Id,
+                                TankId = tankId
+                            });
+                        }
+                        await _context.SaveChangesAsync();
+                    }
+
+                    TempData["ToastMessage"] = "تمت إضافة المنطقة بنجاح";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException ex)
+                {
+                    ModelState.AddModelError("", "حدث خطأ أثناء الحفظ: " + ex.Message);
+                }
             }
 
-            _context.Add(area);
-            await _context.SaveChangesAsync();
-            TempData["Success"] = "تمت إضافة المنطقة بنجاح!";
-            return RedirectToAction(nameof(Index));
-        }
+            ViewBag.Tanks = _context.Tanks.Select(t => new SelectListItem
+            {
+                Value = t.Id.ToString(),
+                Text = t.TankName
+            }).ToList();
 
+            return View(area);
+        }
 
         // GET: Areas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var area = await _context.Areas.FindAsync(id);
-            if (area == null)
+            var area = await _context.Areas
+                .Include(a => a.TankAreas)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (area == null) return NotFound();
+
+            ViewBag.Tanks = _context.Tanks.Select(t => new SelectListItem
             {
-                return NotFound();
-            }
+                Value = t.Id.ToString(),
+                Text = t.TankName,
+                Selected = area.TankAreas.Any(ta => ta.TankId == t.Id)
+            }).ToList();
+
             return View(area);
         }
 
         // POST: Areas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Area area)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Area area, int[] selectedTanks)
         {
             if (id != area.Id) return NotFound();
 
             if (_context.Areas.Any(a => a.Name == area.Name && a.Id != area.Id))
             {
-                ModelState.AddModelError("Name", "اسم المنطقة مستخدم من قبل.");
-                return View(area);
+                ModelState.AddModelError("Name", "اسم المنطقة موجود مسبقًا");
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(area);
+                try
+                {
+                    // تحديث المنطقة
+                    _context.Update(area);
+
+                    // تحديث الخزانات المرتبطة
+                    var existingTanks = await _context.TankAreas
+                        .Where(ta => ta.AreaId == area.Id)
+                        .ToListAsync();
+
+                    _context.TankAreas.RemoveRange(existingTanks);
+
+                    if (selectedTanks != null)
+                    {
+                        foreach (var tankId in selectedTanks)
+                        {
+                            _context.TankAreas.Add(new TankArea
+                            {
+                                AreaId = area.Id,
+                                TankId = tankId
+                            });
+                        }
+                    }
+
+                    await _context.SaveChangesAsync();
+                    TempData["ToastMessage"] = "تم تعديل المنطقة بنجاح";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!AreaExists(area.Id))
+                        return NotFound();
+                    throw;
+                }
             }
 
-            try
+            ViewBag.Tanks = _context.Tanks.Select(t => new SelectListItem
             {
-                _context.Update(area);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "تم تعديل المنطقة بنجاح!";
-                return RedirectToAction(nameof(Index));
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Areas.Any(a => a.Id == area.Id))
-                    return NotFound();
-                throw;
-            }
+                Value = t.Id.ToString(),
+                Text = t.TankName,
+                Selected = selectedTanks?.Contains(t.Id) ?? false
+            }).ToList();
+
+            return View(area);
         }
-
-
 
         // GET: Areas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var area = await _context.Areas
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (area == null)
+                .Include(a => a.Customers)
+                .Include(a => a.TankAreas)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (area == null) return NotFound();
+
+            if (area.Customers.Any() || area.TankAreas.Any())
             {
-                return NotFound();
+                TempData["ToastError"] = "لا يمكن حذف المنطقة لأنها مرتبطة ببيانات أخرى";
+                return RedirectToAction(nameof(Index));
             }
 
             return View(area);
@@ -154,9 +210,9 @@ namespace PSiqa.Controllers
             if (area != null)
             {
                 _context.Areas.Remove(area);
+                await _context.SaveChangesAsync();
+                TempData["ToastMessage"] = "تم حذف المنطقة بنجاح";
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

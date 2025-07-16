@@ -1,41 +1,85 @@
 ﻿@model PSiqa.Models.Area
 
 @{
-    ViewData["Title"] = "إضافة منطقة";
+    ViewData["Title"] = "إضافة منطقة جديدة";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-3">إضافة منطقة</h2>
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h3 class="card-title">@ViewData["Title"]</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" id="areaForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <form asp-action="Create">
-        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label">اسم المنطقة</label>
+                        <input asp-for="Name" class="form-control" placeholder="أدخل اسم المنطقة" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label asp-for="Name" class="control-label"></label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
+            @if (ViewBag.Areas != null)
+            {
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">المناطق المغطاة (اختياري)</label>
+                            <select name="SelectedAreaIds" class="form-control select2" multiple>
+                                @foreach (var area in (MultiSelectList)ViewBag.Areas)
+                                {
+                                    <option value="@area.Value">@area.Text</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            }
 
-        <button type="submit" class="btn btn-primary">حفظ</button>
-        <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
-    </form>
-</div>
-<div class="form-group">
-    <label>المناطق المغطاة</label>
-    <select name="SelectedAreaIds" class="form-control" multiple>
-        @foreach (var area in (MultiSelectList)ViewBag.Areas)
-        {
-            <option value="@area.Value">@area.Text</option>
-        }
-    </select>
-</div>
-<div class="form-group">
-    <button type="submit" class="btn btn-success">حفظ</button>
-    <a asp-action="Index" class="btn btn-secondary">رجوع</a>
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> حفظ
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> رجوع
+                </a>
+            </div>
+        </form>
+    </div>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        $(document).ready(function () {
+            // تفعيل select2 للمناطق المغطاة إذا وجدت
+            if ($('.select2').length) {
+                $('.select2').select2({
+                    placeholder: "اختر المناطق المغطاة",
+                    allowClear: true
+                });
+            }
+
+            // التحقق من النموذج قبل الإرسال
+            $('#areaForm').submit(function (e) {
+                if (!$(this).valid()) {
+                    e.preventDefault();
+                    toastr.error('يرجى تصحيح الأخطاء في النموذج');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .select2-container--default .select2-selection--multiple {
+            min-height: 38px;
+            padding: 5px;
+        }
+    </style>
 }

@@ -4,26 +4,27 @@ namespace PSiqa.Models
 {
     public class Customer
     {
+        [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "الاسم مطلوب")]
-        [StringLength(100, ErrorMessage = "يجب ألا يتجاوز الاسم 100 حرف")]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "الاسم الكامل مطلوب")]
+        [StringLength(100)]
+        public string FullName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "رقم الهاتف مطلوب")]
-        [Phone(ErrorMessage = "رقم الهاتف غير صالح")]
-        public string Phone { get; set; }
+        [Phone]
+        public string Phone { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "العنوان مطلوب")]
-        [StringLength(200, ErrorMessage = "يجب ألا يتجاوز العنوان 200 حرف")]
-        public string Address { get; set; }
+        [StringLength(200)]
+        public string Address { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "يجب اختيار منطقة")]
+        // العلاقة مع المنطقة
+        [Required]
         public int AreaId { get; set; }
+        public Area? Area { get; set; }
 
-        public Area Area { get; set; }
-
+        // الطلبات المرتبطة بهذا الزبون
         public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }
-

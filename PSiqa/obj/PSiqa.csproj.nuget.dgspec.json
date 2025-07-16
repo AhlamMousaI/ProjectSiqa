@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FatemaAlarij\\Desktop\\FatemaAlarij\\ProjectSiqa\\PSiqa\\PSiqa.csproj": {}
+    "C:\\Users\\ُEkhlas_Alrahall\\Desktop\\project\\ProjectSiqa\\ProjectSiqa\\PSiqa\\PSiqa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FatemaAlarij\\Desktop\\FatemaAlarij\\ProjectSiqa\\PSiqa\\PSiqa.csproj": {
+    "C:\\Users\\ُEkhlas_Alrahall\\Desktop\\project\\ProjectSiqa\\ProjectSiqa\\PSiqa\\PSiqa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FatemaAlarij\\Desktop\\FatemaAlarij\\ProjectSiqa\\PSiqa\\PSiqa.csproj",
+        "projectUniqueName": "C:\\Users\\ُEkhlas_Alrahall\\Desktop\\project\\ProjectSiqa\\ProjectSiqa\\PSiqa\\PSiqa.csproj",
         "projectName": "PSiqa",
-        "projectPath": "C:\\Users\\FatemaAlarij\\Desktop\\FatemaAlarij\\ProjectSiqa\\PSiqa\\PSiqa.csproj",
-        "packagesPath": "C:\\Users\\FatemaAlarij\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FatemaAlarij\\Desktop\\FatemaAlarij\\ProjectSiqa\\PSiqa\\obj\\",
+        "projectPath": "C:\\Users\\ُEkhlas_Alrahall\\Desktop\\project\\ProjectSiqa\\ProjectSiqa\\PSiqa\\PSiqa.csproj",
+        "packagesPath": "C:\\Users\\ُEkhlas_Alrahall\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ُEkhlas_Alrahall\\Desktop\\project\\ProjectSiqa\\ProjectSiqa\\PSiqa\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\FatemaAlarij\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ُEkhlas_Alrahall\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -76,7 +71,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -98,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

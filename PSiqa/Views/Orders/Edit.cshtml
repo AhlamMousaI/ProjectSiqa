@@ -1,0 +1,80 @@
+﻿@model PSiqa.Models.Order
+
+@{
+    ViewData["Title"] = "تعديل طلب";
+}
+
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h3 class="card-title">تعديل طلب</h3>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Edit" method="post" class="needs-validation" novalidate>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="CustomerName" class="form-label">اسم الزبون</label>
+                    <input type="text" name="CustomerName" class="form-control" value="@Model.Customer?.FullName" required />
+                    <div class="invalid-feedback">يرجى إدخال اسم الزبون</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="TankName" class="form-label">اسم الخزان</label>
+                    <input type="text" name="TankName" class="form-control" value="@Model.Tank?.TankName" required />
+                    <div class="invalid-feedback">يرجى إدخال اسم الخزان</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="DriverName" class="form-label">اسم السائق</label>
+                    <input type="text" name="DriverName" class="form-control" value="@Model.Driver?.FullName" />
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Quantity" class="form-label">الكمية</label>
+                    <input asp-for="Quantity" class="form-control" required min="1" />
+                    <div class="invalid-feedback">يرجى إدخال كمية صحيحة</div>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Status" class="form-label">الحالة</label>
+                    <select asp-for="Status" class="form-select" required>
+                        <option value="قيد الانتظار" selected="@("قيد الانتظار" == Model.Status)">قيد الانتظار</option>
+                        <option value="جاري التسليم" selected="@("جاري التسليم" == Model.Status)">جاري التسليم</option>
+                        <option value="تم" selected="@("تم" == Model.Status)">تم</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> رجوع
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> حفظ التعديلات
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+}

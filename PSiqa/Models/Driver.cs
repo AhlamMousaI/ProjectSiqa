@@ -9,7 +9,7 @@ namespace PSiqa.Models
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string FullName { get; set; }
 
         [Phone]
         public string Phone { get; set; }
