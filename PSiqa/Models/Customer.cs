@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PSiqa.Models
 {
@@ -7,24 +8,24 @@ namespace PSiqa.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "الاسم الكامل مطلوب")]
-        [StringLength(100)]
-        public string FullName { get; set; } = string.Empty;
+        [Required(ErrorMessage = "الاسم مطلوب")]
+        [StringLength(50)]
+        public string FullName { get; set; }
 
         [Required(ErrorMessage = "رقم الهاتف مطلوب")]
-        [Phone]
-        public string Phone { get; set; } = string.Empty;
+        [RegularExpression(@"^05\d{8}$", ErrorMessage = "رقم الهاتف غير صالح. يجب أن يبدأ بـ 05 ويتكون من 10 أرقام")]
+        public string Phone { get; set; }
 
         [Required(ErrorMessage = "العنوان مطلوب")]
-        [StringLength(200)]
-        public string Address { get; set; } = string.Empty;
+        [StringLength(100, MinimumLength = 5, ErrorMessage = "العنوان يجب أن يكون بين 5 و 100 حرف")]
+        public string Address { get; set; }
 
-        // العلاقة مع المنطقة
-        [Required]
+        [Required(ErrorMessage = "يجب اختيار المنطقة")]
         public int AreaId { get; set; }
-        public Area? Area { get; set; }
 
-        // الطلبات المرتبطة بهذا الزبون
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        [ForeignKey("AreaId")]
+        public Area Area { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

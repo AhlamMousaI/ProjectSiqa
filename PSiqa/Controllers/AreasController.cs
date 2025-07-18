@@ -174,7 +174,7 @@ namespace PSiqa.Controllers
             {
                 Value = t.Id.ToString(),
                 Text = t.TankName,
-                Selected = selectedTanks?.Contains(t.Id) ?? false
+                Selected = selectedTanks != null && selectedTanks.Contains(t.Id)
             }).ToList();
 
             return View(area);

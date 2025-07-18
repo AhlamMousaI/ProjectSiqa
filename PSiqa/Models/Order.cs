@@ -24,14 +24,15 @@ namespace PSiqa.Models
         [Required]
         public DateTime OrderTime { get; set; }
         public int? DriverId { get; set; }
+        
+
 
         // علاقات
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }
 
         [ForeignKey("TankId")]
-        public Tank Tank { get; set; }
-
+        public Tank? Tank { get; set; }  
         [ForeignKey("DriverId")]
         public Driver Driver { get; set; }
     }

@@ -1,0 +1,59 @@
+﻿@model PSiqa.Models.Customer
+
+@{
+    ViewData["Title"] = "تفاصيل الزبون";
+}
+
+<h2>تفاصيل الزبون</h2>
+
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">الاسم الكامل</dt>
+    <dd class="col-sm-9">@Model.FullName</dd>
+
+    <dt class="col-sm-3">رقم الهاتف</dt>
+    <dd class="col-sm-9">@Model.Phone</dd>
+
+    <dt class="col-sm-3">العنوان</dt>
+    <dd class="col-sm-9">@Model.Address</dd>
+
+    <dt class="col-sm-3">المنطقة</dt>
+    <dd class="col-sm-9">@Model.Area?.Name</dd>
+</dl>
+
+<hr />
+<h4>سجل الطلبات</h4>
+
+@if (Model.Orders != null && Model.Orders.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>تاريخ الطلب</th>
+                <th>الكمية</th>
+                <th>الحالة</th>
+                <th>الخزان</th>
+                <th>السائق</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td>@order.OrderTime.ToShortDateString()</td>
+                    <td>@order.Quantity</td>
+                    <td>@order.Status</td>
+                    <td>@order.Tank?.TankName</td>
+                    <td>@order.Driver?.FullName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>لا يوجد طلبات لهذا الزبون.</p>
+}
+
+<a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">تعديل</a>
+<a asp-action="Index" class="btn btn-secondary">عودة للقائمة</a>
