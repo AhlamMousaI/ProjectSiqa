@@ -16,6 +16,7 @@ namespace PSiqa.Data
         public DbSet<TankArea> TankAreas { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Driver> Drivers { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -130,5 +131,7 @@ namespace PSiqa.Data
                 }
             );
         }
+       
+
     }
 }

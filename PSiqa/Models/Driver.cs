@@ -15,6 +15,6 @@ namespace PSiqa.Models
         public string Phone { get; set; }
 
         // الطلبات التي ينفذها هذا السائق
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Order> Orders { get; set; } = new List<Order>();
     }
 }

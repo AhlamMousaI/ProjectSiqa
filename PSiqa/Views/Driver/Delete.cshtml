@@ -1,0 +1,23 @@
+﻿@model PSiqa.Models.Driver
+
+@{
+    ViewData["Title"] = "حذف سائق";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3 text-danger">هل أنت متأكد من حذف هذا السائق؟</h2>
+
+    <dl class="row">
+        <dt class="col-sm-2">الاسم:</dt>
+        <dd class="col-sm-10">@Model.FullName</dd>
+
+        <dt class="col-sm-2">رقم الهاتف:</dt>
+        <dd class="col-sm-10">@Model.Phone</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">حذف</button>
+        <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+    </form>
+</div>
