@@ -58,22 +58,19 @@ namespace PSiqa.Controllers
             return View();
         }
 
-        // POST: Customers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FullName,Phone,Address,AreaId")] Customer customer)
         {
-            if (ModelState.IsValid)
-            {
+            
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             ViewData["AreaId"] = new SelectList(_context.Areas, "Id", "Name", customer.AreaId);
             return View(customer);
         }
+
 
         // GET: Customers/Edit/5
         public async Task<IActionResult> Edit(int? id)
